@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="org.example.Listener"/>
+    </listeners>
+    <parameter name="browser" value="chrome"/> <!--inserire chrome, firefox o edge nel valore-->
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Giorgio/IdeaProjects/TestMeteo/src/test/java/org/example/Listener.java">
+        <classes/>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Giorgio/IdeaProjects/TestMeteo/src/test/java/org/example/Main.java">
+        <classes/>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Giorgio/IdeaProjects/TestMeteo/src/test/java/org/example/Stringhe.java">
+        <classes/>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Giorgio/IdeaProjects/TestMeteo/src/test/java/org/example/Utility.java">
+        <classes/>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Giorgio/IdeaProjects/TestMeteo/src/test/java/org/example/Xpath.java">
+        <classes/>
+    </test>
+</suite>

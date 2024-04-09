@@ -6,7 +6,7 @@ import org.testng.ITestResult;
 
 import java.io.IOException;
 
-import static org.example.Utility.*;
+import static org.example.Utility.getScreenshot;
 
 public class Listener implements ITestListener {
     public Listener() {
