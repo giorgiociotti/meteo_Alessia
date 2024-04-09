@@ -5,6 +5,9 @@
         <listener class-name="org.example.Listener"/>
     </listeners>
     <parameter name="browser" value="chrome"/> <!--inserire chrome, firefox o edge nel valore-->
+    <test verbose="2" preserve-order="true" name="C:/Users/Giorgio/IdeaProjects/TestMeteo/testng.xml">
+        <classes/>
+    </test>
     <test verbose="2" preserve-order="true"
           name="C:/Users/Giorgio/IdeaProjects/TestMeteo/src/test/java/org/example/Listener.java">
         <classes/>
@@ -19,7 +22,6 @@
             <class name="org.example.TestMeteo">
                 <methods>
                     <include name="login"/>
-                    <include name="meteo"/>
                 </methods>
             </class>
         </classes>
