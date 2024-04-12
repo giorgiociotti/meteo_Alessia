@@ -25,7 +25,7 @@ import static org.example.Xpath.*;
 
 public class TestMeteo extends Listener {
     SoftAssert softAssert = new SoftAssert();
-    Xpath xpath = new Xpath();
+    
     
     @BeforeTest
     public void setup() {
@@ -38,19 +38,18 @@ public class TestMeteo extends Listener {
             driver.manage().window().maximize();
        
     }
-    @Test(priority = 1)
-    public void login(){
-    driver.get("https://www.ilmeteo.it/meteo.php?citta_input=Roma");
-    }
-    @Test(priority = 2)
+   
+    @Test
     public void meteo() throws IOException {
+        driver.get("https://www.ilmeteo.it/meteo.php?citta_input=Roma");
+        
         WebElement tbody= find(tableTbody);
         int x = tbody.getLocation().getX();
         int y = tbody.getLocation().getY();
         int width = tbody.getSize().getWidth();
         int height = tbody.getSize().getHeight();
         File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        
+
         // Ritaglia l'immagine per includere solo l'elemento desiderato
         BufferedImage fullImg = ImageIO.read(screenshot);
         BufferedImage elementScreenshot = fullImg.getSubimage(x, y, width, height);
@@ -58,7 +57,7 @@ public class TestMeteo extends Listener {
         Date currentdate = new Date();
         String screenshotfilename = currentdate.toString().replace(" ", "-").replace(":", "-");
         // Salva lo screenshot come file
-        FileUtils.copyFile(screenshot, new File(".//screenshot//" + screenshotfilename + ".png"));
+        FileUtils.copyFile(screenshot, new File("./" + screenshotfilename + ".png"));
     }
     
     @AfterTest

@@ -6,6 +6,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
@@ -125,7 +127,7 @@ public class Utility {
         
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
-    
+    //METODI SCREENSHOT
     public static void getScreenshot() throws IOException {
         Date currentdate = new Date();
         String screenshotfilename = currentdate.toString().replace(" ", "-").replace(":", "-");
@@ -133,6 +135,25 @@ public class Utility {
         FileUtils.copyFile(screenshotFile, new File(".//screenshot//" + screenshotfilename + ".png"));
     }
     
+    
+    public static void getScreenshotElement( WebElement element) throws IOException {
+        Date currentdate = new Date();
+        String screenshotfilename = currentdate.toString().replace(" ", "-").replace(":", "-");
+        File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        
+        // Ottieni posizione e dimensioni dell'elemento
+        int x = element.getLocation().getX();
+        int y = element.getLocation().getY();
+        int width = element.getSize().getWidth();
+        int height = element.getSize().getHeight();
+        
+        // Ritaglia l'immagine per includere solo l'elemento desiderato
+        BufferedImage fullImg = ImageIO.read(screenshotFile);
+        BufferedImage elementScreenshot = fullImg.getSubimage(x, y, width, height);
+        ImageIO.write(elementScreenshot, "png", screenshotFile);
+        
+        FileUtils.copyFile(screenshotFile, new File(".//screenshot//" + screenshotfilename + ".png"));
+    }
     
     public static boolean isModalOpenOrClosed(WebElement modale) {
         try {
