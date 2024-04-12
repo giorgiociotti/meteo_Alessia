@@ -5,14 +5,8 @@ package org.example;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
@@ -22,9 +16,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Date;
-import java.util.List;
 
 
 import static org.example.Stringhe.*;
@@ -35,11 +27,8 @@ public class TestMeteo extends Listener {
     SoftAssert softAssert = new SoftAssert();
     Xpath xpath = new Xpath();
     
-    @Parameters({"browser"})
     @BeforeTest
-    public void setup(String browser) {
-        
-        if ("firefox".equals(browser)) {//if browser null o pippo
+    public void setup() {
             //FIREFOX
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
@@ -47,24 +36,7 @@ public class TestMeteo extends Listener {
             options.addArguments("--disable-dev-shm-usage");
             driver = new FirefoxDriver(options);
             driver.manage().window().maximize();
-        } else if ("chrome".equals(browser)) {
-            //CHROME
-            WebDriverManager.chromedriver().setup();
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--remote-allow-origins=*");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            driver = new ChromeDriver(options);
-            driver.manage().window().maximize();
-        } else {
-            WebDriverManager.chromedriver().setup();
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--remote-allow-origins=*");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            driver = new ChromeDriver(options);
-            driver.manage().window().maximize();
-        }
+       
     }
     @Test(priority = 1)
     public void login(){
