@@ -18,8 +18,7 @@ import java.util.List;
 public class Utility {
     public static WebDriver driver;
     public static final String driverpath = "C:\\Users\\gciot\\IdeaProjects\\chromedriver-win64\\chromedriver.exe";
-    public static final String username = "g.ciotti";
-    public static final String password = "Giorgio01.";
+    
     
     //METODO CHE CLICCA UN ELEMENTO
     public static void cliccaxpath(String xpath) {
