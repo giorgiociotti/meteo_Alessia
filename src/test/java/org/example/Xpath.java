@@ -23,7 +23,7 @@ public class Xpath {
     public static final String tabellaThClass = "//tabella//th[@class='#REPLACEMENT#']";
     public static final String tabellaTd = "//tabella//td[@class='#REPLACEMENT#']";
     public static final String spanNg_reflect_ng_class = "//span[@ng-reflect-ng-class='#REPLACEMENT#']";
-    //    public static final String idPaginator = "//*[@id='#REPLACEMENT#'";
+    public static final String idPaginator = "//*[@id='#REPLACEMENT#'";
     public static final String buttonngReflectLabel = "//button[@ng-reflect-label='#REPLACEMENT#']";
     public static final String formClass = "//formPath[@class='#REPLACEMENT#']";
     public static final String h3Class = "//h3[@class='#REPLACEMENT#']";

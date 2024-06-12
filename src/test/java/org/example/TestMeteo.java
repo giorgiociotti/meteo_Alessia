@@ -41,7 +41,7 @@ public class TestMeteo extends Listener {
    
     @Test
     public void meteo() throws IOException {
-        driver.get("https://www.ilmeteo.it/meteo.php?citta_input=Roma");
+        driver.get("https://www.ilmeteo.it/meteo.php?citta_input=");
         
         WebElement tbody= find(tableTbody);
         int x = tbody.getLocation().getX();
